@@ -1,19 +1,18 @@
-<script>
-	import Header from './Header.svelte';
-	import '../app.css';
-</script>
+<script>import Header from './Header.svelte';
+import '../app.css';</script>
 
 <div class="app">
-	<Header />
+	<Header></Header>
 
 	<main>
-		<slot />
+		<slot></slot>
 	</main>
 
 	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
+		<p> made with <a href="https://kit.svelte.dev">SvelteKit</a>, hosted on <a href="https://vercel.com">Vercel</a></p>
 	</footer>
 </div>
+
 
 <style>
 	.app {
