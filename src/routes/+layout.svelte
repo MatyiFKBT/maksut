@@ -1,18 +1,28 @@
-<script>import Header from './Header.svelte';
-import '../app.css';</script>
+<script>
+	import Header from "./Header.svelte";
+	import "../app.css";
+	import { QueryClientProvider } from "@sveltestack/svelte-query";
+	import { Toaster } from "$lib/components/ui/sonner";
+
+</script>
 
 <div class="app">
 	<Header></Header>
 
 	<main>
-		<slot></slot>
+		<Toaster />
+		<QueryClientProvider>
+			<slot></slot>
+		</QueryClientProvider>
 	</main>
 
 	<footer>
-		<p> made with <a href="https://kit.svelte.dev">SvelteKit</a>, hosted on <a href="https://vercel.com">Vercel</a></p>
+		<p>
+			made with <a href="https://kit.svelte.dev">SvelteKit</a>, hosted on
+			<a href="https://vercel.com">Vercel</a>
+		</p>
 	</footer>
 </div>
-
 
 <style>
 	.app {
