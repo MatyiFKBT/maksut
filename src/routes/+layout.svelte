@@ -1,13 +1,14 @@
 <script>
-  import Header from "./Header.svelte";
-  import "../app.css";
-  import { QueryClientProvider } from "@sveltestack/svelte-query";
   import { Toaster } from "$lib/components/ui/sonner";
+  import { QueryClient, QueryClientProvider } from "@tanstack/svelte-query";
+  import "../app.css";
+  import Header from "./Header.svelte";
 
   import { mountVercelToolbar } from "@vercel/toolbar/vite";
   import { onMount } from "svelte";
 
   onMount(() => mountVercelToolbar());
+  const queryClient = new QueryClient();
 </script>
 
 <div class="app">
@@ -15,7 +16,7 @@
 
   <main>
     <Toaster />
-    <QueryClientProvider>
+    <QueryClientProvider client={queryClient}>
       <slot></slot>
     </QueryClientProvider>
   </main>

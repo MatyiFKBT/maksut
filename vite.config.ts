@@ -5,6 +5,6 @@ import { vercelToolbar } from "@vercel/toolbar/plugins/vite";
 export default defineConfig({
   plugins: [sveltekit(), vercelToolbar()],
   optimizeDeps: {
-    exclude: ["@sveltestack/svelte-query"],
+    exclude: ["@tanstack/svelte-query"],
   },
 });
