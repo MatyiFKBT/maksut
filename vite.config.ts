@@ -1,9 +1,10 @@
-import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig } from 'vite';
+import { sveltekit } from "@sveltejs/kit/vite";
+import { defineConfig } from "vite";
+import { vercelToolbar } from "@vercel/toolbar/plugins/vite";
 
 export default defineConfig({
-	plugins: [sveltekit()],
-	optimizeDeps: {
-		exclude: ['@sveltestack/svelte-query']
-	}
+  plugins: [sveltekit(), vercelToolbar()],
+  optimizeDeps: {
+    exclude: ["@sveltestack/svelte-query"],
+  },
 });
