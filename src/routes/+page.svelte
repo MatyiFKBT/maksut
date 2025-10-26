@@ -10,7 +10,7 @@
   import * as Table from "$lib/components/ui/table";
 
   import { superForm } from "sveltekit-superforms";
-  import { zodClient } from "sveltekit-superforms/adapters";
+  import { zod4Client } from "sveltekit-superforms/adapters";
   import { formSchema, type FormSchema } from "./schema";
 
   const octokit = new Octokit();
@@ -28,7 +28,7 @@
   });
 
   const form = superForm(data.form, {
-    validators: zodClient(formSchema),
+    validators: zod4Client(formSchema),
     dataType: "json",
     onUpdated: ({ form: f }: { form: any }) => {
       console.log(f);
@@ -53,9 +53,11 @@
 <section>
   <form method="POST" use:enhance>
     <Form.Field {form} name="username">
-      <Form.Control let:attrs>
-        <Form.Label>Username</Form.Label>
-        <Input {...attrs} bind:value={$formData.username} />
+      <Form.Control>
+        {#snippet children({ props })}
+          <Form.Label>Username</Form.Label>
+          <Input {...props} bind:value={$formData.username} />
+        {/snippet}
       </Form.Control>
       <Form.Description>This is your public display name.</Form.Description>
       <Form.FieldErrors />
