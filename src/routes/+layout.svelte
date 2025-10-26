@@ -4,10 +4,6 @@
   import "../app.css";
   import Header from "./Header.svelte";
 
-  import { mountVercelToolbar } from "@vercel/toolbar/vite";
-  import { onMount } from "svelte";
-
-  onMount(() => mountVercelToolbar());
   const queryClient = new QueryClient();
 </script>
 
